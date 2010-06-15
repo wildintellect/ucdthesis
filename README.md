@@ -9,7 +9,7 @@ Originally based on the File for a general UC Dissertation / Thesis
 Modfied specifically to the UCD thesis class by Shwaine <shwaine@shwaine.com>
 
 Most Recent changes by Dylan Beaudette, 2006
-Clarification and posting by Alex Mandel, 2010
+Clarification and posting by Alex Mandel <tech@wildintellect.com>, 2010
 
 Contact us with questions and updates, we've posted the source on github so it's easier to accept changes and allow people to post their own variations.
 
