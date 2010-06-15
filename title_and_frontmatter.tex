@@ -1,0 +1,72 @@
+% Declarations for Front Matter
+
+% this is an MS Thesis
+\isdissertation{0}
+
+\title{Some Title Here}
+\author{Author}
+
+\degreemonth{June}
+\degreeyear{2008}
+\degree{Master of Science}
+
+\chair{xxx}
+\othermembers{xxx \\
+xxx}
+\numberofmembers{3}
+
+\prevdegrees{B.S (University of California at Davis)}
+
+\field{xxx}
+\campus{Davis}
+
+
+% add the abstract here
+\input{abstract}
+
+
+% Here is the first, external, abstract.
+\begin{abstract}
+	\myabstract
+	\abstractsignature
+\end{abstract}
+
+\begin{frontmatter}
+\maketitle
+
+% A copyright page is optional. If you have one, it must immediately
+% follow the title page. For more information about the copyright page
+% see the UCD's Office of Graduate Studies web site.
+% \copyrightpage
+
+% dedication 
+\begin{dedication}
+\null\vfil
+{\large
+\begin{center}
+xxxx
+\end{center}}
+\vfil\null
+\end{dedication}
+
+\begin{acknowledgments}
+xxxxxxx
+\end{acknowledgments}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Here is the second, internal, abstract.
+% Update: Melissa Danforth 2006
+% Inline abstract is now part of front matter according to coordinator
+    \newpage
+    \begin{inlineabstract}
+		\addcontentsline{toc}{chapter}{\abstractname}
+		\begin{small}
+		\myabstract
+		\end{small}
+		\abstractsignature
+    \end{inlineabstract}
+
+\end{frontmatter}

@@ -1,0 +1,161 @@
+% Root File for a UC Dissertation / Thesis
+% UCD thesis class: c/o Shwaine <shwaine@shwaine.com>
+% 
+% modified by Dylan Beaudette, 2006
+% 
+\documentclass[11pt]{ucdthesis}
+
+% when we are giving people drafts, use more of the page:
+% \usepackage[letterpaper,left=0.75in,right=0.75in,top=1.25in,bottom=0.5in]{geometry}
+
+% Turn on single spacing with \ssp.
+% Turn on double spacing with \dsp.
+% By default, your dissertation is double spaced, as is required by UCD.
+
+% spacing in figures and tables and their captions can be
+% changed here (\ssp for single-space, empty for same as surrounding 
+% text); for this to work, the command \figsp has to be included
+% in every figure and table right after the \begin{figure}
+% \def\figsp{\ssp}
+%\def\figsp{}
+
+
+% % UC thesis template is a bit different than what UCD wants
+% \documentclass[10pt,twoside,final]{ucthesis}
+% \documentclass[10pt,twoside,draft]{ucthesis}
+% \documentclass[10pt,oneside,final]{ucthesis}
+% todo: final options: [12pt,oneside,final]
+
+
+% useful for drafts
+% line numbers:
+% http://www.ctan.org/tex-archive/help/Catalogue/entries/lineno.html
+% 
+% \usepackage{lineno}
+
+% 
+% SVN integration
+% 
+% \usepackage{svnkw}
+
+% customized headers
+% 
+% http://www.ctan.org/tex-archive/help/Catalogue/entries/fancyhdr.html
+% \usepackage{fancyhdr}
+
+% a better verbatim environment: c/o Pete Dirac
+% use like this:
+%   \begin{Verbatim}[fontsize=8]
+%       foobar
+%    \end{Verbatim}
+% \usepackage{fancyvrb}
+
+
+% more flexible math support
+\usepackage{amsmath}
+
+% allow some pages to be landscape
+\usepackage{lscape}
+
+% more flexible definition of table environments
+\usepackage{ctable}
+
+%need this for \includegraphics{}
+\usepackage{graphicx}
+
+% TODO: use the new subfig package instead
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% 
+%use this to put figures side by side
+\usepackage{subfigure}
+
+ 
+% nice looking, parenthetical references
+\usepackage[round]{natbib}
+
+% fix nasty bug (usthesis + natbib)
+% http://www.isi.edu/~johnh/SOFTWARE/uclathes.html
+\def\newblock{\hskip .11em plus .33em minus .07em} 
+
+% customized captions with bold label and small, italic text
+% table captions are located above tables
+% http://www.kronto.org/thesis/tips/custom-captions.html
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+% does this have any effect?
+\usepackage{caption}
+% \renewcommand{\captionfont}{\small\itshape}
+% 
+% modern method for setting up captions\
+\captionsetup{margin=10pt,font=small,labelfont=bf}
+% 
+% fix so that table captions have correct spacing
+\captionsetup[table]{position=top}
+
+
+
+% %
+% %  fit more material on the page:
+% % 
+% 
+% reset some float-controlling parameters
+\renewcommand{\floatpagefraction}{0.8}	% require fuller float pages
+
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+
+
+
+
+
+%%% Document Portion:
+\begin{document}
+
+
+% 
+%% Title, Front Matter, and Abstract:
+\input{title_and_frontmatter}
+
+% 
+% the chapters
+% 
+
+% change the page style
+% \pagestyle{fancy}
+
+
+% TODO: this is only for draft copies !!
+% start line number printing
+% 
+% \linenumbers
+
+
+
+% chapter 1
+\input{ch1}
+
+% chapter 2
+\input{ch2}
+
+
+
+% note that the 'plainnat' style does not allow URL's in the bibtex entry
+% 
+% some ideas here:
+% http://bib2web.djvuzone.org/bibtex.html
+% 
+\ssp   % bibliography can be single-spaced for UC thesis format
+\bibliography{my_bibfile_here}
+% this format is close enough to SSSA, etc.
+\bibliographystyle{apalike}
+
+
+% the appendix:
+% there are several sections, that don't really fit into the main chapters
+% 
+\part*{\addcontentsline{toc}{part}{Appendices}Appendices}
+\appendix
+\input{appendix}
+
+
+\end{document}
