@@ -1,13 +1,22 @@
 % Root File for a UC Dissertation / Thesis
 % UCD thesis class: c/o Shwaine <shwaine@shwaine.com>
 % 
-% modified by Dylan Beaudette, 2006
-% minor edits by Alex Mandel, 2010
+% modified by Dylan Beaudette, 2006,2010
+% minor edits and source uploaded by Alex Mandel, 2010
 % Source code available at http://github.com/wildintellect/ucdthesis
 \documentclass[11pt]{ucdthesis}
+%\documentclass[10pt,twoside,final]{ucdthesis}
+% \documentclass[10pt,twoside,draft]{ucdthesis}
+% \documentclass[10pt,oneside,final]{ucdthesis}
+
+% TODO: this makes strange things happen in the header...
+% this is the version that grad studies wants
+% \documentclass[11pt,oneside,final]{ucdthesis}
 
 % when we are giving people drafts, use more of the page:
 % \usepackage[letterpaper,left=0.75in,right=0.75in,top=1.25in,bottom=0.5in]{geometry}
+% need this for the \foreach command 
+\usepackage{tikz}
 
 % Turn on single spacing with \ssp.
 % Turn on double spacing with \dsp.
@@ -19,13 +28,6 @@
 % in every figure and table right after the \begin{figure}
 % \def\figsp{\ssp}
 %\def\figsp{}
-
-
-% % UC thesis template is a bit different than what UCD wants
-% \documentclass[10pt,twoside,final]{ucthesis}
-% \documentclass[10pt,twoside,draft]{ucthesis}
-% \documentclass[10pt,oneside,final]{ucthesis}
-% todo: final options: [12pt,oneside,final]
 
 
 % useful for drafts
@@ -70,13 +72,30 @@
 %use this to put figures side by side
 \usepackage{subfigure}
 
- 
+ % PDF links --- > breaks with some bibliography entries
+% \usepackage{hyperref}
+
 % nice looking, parenthetical references
 \usepackage[round]{natbib}
 
 % fix nasty bug (usthesis + natbib)
 % http://www.isi.edu/~johnh/SOFTWARE/uclathes.html
 \def\newblock{\hskip .11em plus .33em minus .07em} 
+
+
+%make the index 
+% \usepackage{makeidx} 
+% \makeindex
+
+% more flexible math support
+\usepackage{amsmath}
+
+
+% custom colors
+\usepackage{color}
+% make a color for comments
+\definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}
+
 
 % customized captions with bold label and small, italic text
 % table captions are located above tables
@@ -121,8 +140,12 @@
 % the chapters
 % 
 
-% change the page style
-% \pagestyle{fancy}
+% set page style:
+% make the chapter and section smaller, chapter and section numbers are removed
+% fancyplain will keep the page numbers at the bottom of all pages
+\pagestyle{fancyplain} %Note the \fancyplain command !!!
+\renewcommand{\chaptermark}[1]{\markboth{\small{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\small{#1}}{}}
 
 
 % TODO: this is only for draft copies !!
@@ -145,6 +168,10 @@
 % some ideas here:
 % http://bib2web.djvuzone.org/bibtex.html
 % 
+
+% reset the page style
+\pagestyle{plain}
+
 \ssp   % bibliography can be single-spaced for UC thesis format
 \bibliography{my_bibfile_here}
 % this format is close enough to SSSA, etc.
@@ -156,7 +183,11 @@
 % 
 \part*{\addcontentsline{toc}{part}{Appendices}Appendices}
 \appendix
-\input{appendix}
+
+% reset page style to fancy
+\pagestyle{fancyplain}
+
+% \input{appendix}
 
 
 \end{document}
