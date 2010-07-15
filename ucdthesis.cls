@@ -95,6 +95,11 @@
 %%%			   and \markboth if you use \part.  The solution
 %%%			   is to get the headerfooter style, which is
 %%%			   nice and simple to use."
+% 
+%%%			Updated 2010/07/08 for electronic submissions
+%%%			where the comittee member names need to be 
+%%%			printed below the lines where signatures normally
+%%%			go. Toggle with the \iselectronic variable.
 %%%  }
 %%% ====================================================================
 
@@ -256,21 +261,35 @@
 % The name of your committee's chair
 \def\chair#1{\gdef\@chair{#1}}
 
+% % this wasn't previously used by antyhing
+% % converted to list, for generation of electronicly submitted dissertation / thesis
+% % DEB 2010/07/08
 % The names of your other committe members, one per line
-\def\othermembers#1{\gdef\@othermembers{#1}}
+% \def\othermembers#1{\gdef\@othermembers{#1}}
+
+% updated DEB 2010/07/08
+% The names of your other committe members, in a list
+\def\othermembers{\gdef\othermembers}
 
 % Boolean determining if this is a dissertation or thesis (1 for diss). (TJK
 % 2002/02/17)
 \def\@isdissertation{1}
 \def\isdissertation#1{\gdef\@isdissertation{#1}}
 
+% Boolean: is this an electronic submission?
+% if so, then 
+\def\@iselectronic{1}
+\def\iselectronic#1{\gdef\@iselectronic{#1}}
+
+
 % The number of committee members, which affects both the
 % number of lines and the amount of space between lines
 % on the approval page.
+% adjusted for electronic submission  DEB 2010/07/08
 \def\@numberofmembers{3}
 \def\@approvalspace{.35in}
 \def\numberofmembers#1{\gdef\@numberofmembers{#1}
-\ifnum \@numberofmembers > 3
+\ifnum \@numberofmembers > 3 ||  \@iselectronic > 0
 \gdef\@approvalspace{.25in}
 \fi}
 
@@ -346,24 +365,46 @@
     \fmsmallfont
     Approved:\\
     {
+    
+    \ifnum \@iselectronic > 0
       \vspace{\@approvalspace}
       $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.0in}}}\:$ \\
+		\@chair, Chair \\
+
+		\foreach \member in \othermembers
+			{
       \vspace{\@approvalspace}
       $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.0in}}}\:$ \\
+			\member \\
+			}
+		\vspace{\@approvalspace}
+		
+	\else
       \vspace{\@approvalspace}
       $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.0in}}}\:$ \\
-\ifnum \@numberofmembers > 3
+			
+		\foreach \member in \othermembers
+			{
       \vspace{\@approvalspace}
       $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.0in}}}\:$ \\
+			}
 \fi
-\ifnum \@numberofmembers > 4
-      \vspace{\@approvalspace}
-      $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.0in}}}\:$ \\
-\fi
-\ifnum \@numberofmembers > 5
-      \vspace{\@approvalspace}
-      $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.0in}}}\:$ \\
-\fi
+
+% % replaced with foreach loop implementation
+% % DEB 2010/07/08
+% \ifnum \@numberofmembers > 3
+%       \vspace{\@approvalspace}
+%       $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.0in}}}\:$ \\
+% \fi
+% \ifnum \@numberofmembers > 4
+%       \vspace{\@approvalspace}
+%       $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.0in}}}\:$ \\
+% \fi
+% \ifnum \@numberofmembers > 5
+%       \vspace{\@approvalspace}
+%       $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.0in}}}\:$ \\
+% \fi
+
     }
     Committee in charge \par
     \vspace*{\fill}
@@ -463,7 +504,11 @@ by\par
     \vspace{1.7cm}
     \rule{3.2in}{.5pt}\\
     \@chair\\
+	\ifnum \@isdissertation > 0
+		Dissertation Committee Chair
+	\else
     Thesis Committee Chair
+	\fi
   \end{minipage}}
 
 % INLINEABSTRACT

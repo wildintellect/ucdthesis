@@ -1,7 +1,10 @@
 % Declarations for Front Matter
 
-% this is an MS Thesis
+% MS Thesis = 0, Phd Dissertation = 1
 \isdissertation{0}
+
+% electronic submission? Paper only = 0, Electronic = 1
+\iselectronic{0}
 
 \title{Some Title Here}
 \author{Author}
@@ -66,7 +69,10 @@ xxxxxxx
 		\begin{small}
 		\myabstract
 		\end{small}
-		\abstractsignature
+		
+		% DEB 2010/07/09
+		% don't really need the signature for the in-line abstract
+		% \abstractsignature
     \end{inlineabstract}
 
 \end{frontmatter}
