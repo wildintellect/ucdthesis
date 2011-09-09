@@ -1,6 +1,6 @@
 % Root File for a UC Dissertation / Thesis
 % UCD thesis class: c/o Shwaine <shwaine@shwaine.com>
-% 
+%
 % modified by Dylan Beaudette, 2006,2010
 % minor edits and source uploaded by Alex Mandel, 2010
 % Source code available at http://github.com/wildintellect/ucdthesis
@@ -15,7 +15,7 @@
 
 % when we are giving people drafts, use more of the page:
 % \usepackage[letterpaper,left=0.75in,right=0.75in,top=1.25in,bottom=0.5in]{geometry}
-% need this for the \foreach command 
+% need this for the \foreach command
 \usepackage{tikz}
 
 % Turn on single spacing with \ssp.
@@ -23,7 +23,7 @@
 % By default, your dissertation is double spaced, as is required by UCD.
 
 % spacing in figures and tables and their captions can be
-% changed here (\ssp for single-space, empty for same as surrounding 
+% changed here (\ssp for single-space, empty for same as surrounding
 % text); for this to work, the command \figsp has to be included
 % in every figure and table right after the \begin{figure}
 % \def\figsp{\ssp}
@@ -33,16 +33,16 @@
 % useful for drafts
 % line numbers:
 % http://www.ctan.org/tex-archive/help/Catalogue/entries/lineno.html
-% 
+%
 % \usepackage{lineno}
 
-% 
+%
 % SVN integration
-% 
+%
 % \usepackage{svnkw}
 
 % customized headers
-% 
+%
 % http://www.ctan.org/tex-archive/help/Catalogue/entries/fancyhdr.html
 % \usepackage{fancyhdr}
 
@@ -68,7 +68,7 @@
 
 % TODO: use the new subfig package instead
 % http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
-% 
+%
 %use this to put figures side by side
 \usepackage{subfigure}
 
@@ -80,22 +80,16 @@
 
 % fix nasty bug (usthesis + natbib)
 % http://www.isi.edu/~johnh/SOFTWARE/uclathes.html
-\def\newblock{\hskip .11em plus .33em minus .07em} 
+\def\newblock{\hskip .11em plus .33em minus .07em}
 
-
-%make the index 
-% \usepackage{makeidx} 
+%make the index
+% \usepackage{makeidx}
 % \makeindex
-
-% more flexible math support
-\usepackage{amsmath}
-
 
 % custom colors
 \usepackage{color}
 % make a color for comments
 \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}
-
 
 % customized captions with bold label and small, italic text
 % table captions are located above tables
@@ -104,10 +98,10 @@
 % does this have any effect?
 \usepackage{caption}
 % \renewcommand{\captionfont}{\small\itshape}
-% 
+%
 % modern method for setting up captions\
 \captionsetup{margin=10pt,font=small,labelfont=bf}
-% 
+%
 % fix so that table captions have correct spacing
 \captionsetup[table]{position=top}
 
@@ -115,8 +109,8 @@
 
 % %
 % %  fit more material on the page:
-% % 
-% 
+% %
+%
 % reset some float-controlling parameters
 \renewcommand{\floatpagefraction}{0.8}	% require fuller float pages
 
@@ -132,13 +126,13 @@
 \begin{document}
 
 
-% 
+%
 %% Title, Front Matter, and Abstract:
 \input{title_and_frontmatter}
 
-% 
+%
 % the chapters
-% 
+%
 
 % set page style:
 % make the chapter and section smaller, chapter and section numbers are removed
@@ -150,7 +144,7 @@
 
 % TODO: this is only for draft copies !!
 % start line number printing
-% 
+%
 % \linenumbers
 
 
@@ -164,10 +158,10 @@
 
 
 % note that the 'plainnat' style does not allow URL's in the bibtex entry
-% 
+%
 % some ideas here:
 % http://bib2web.djvuzone.org/bibtex.html
-% 
+%
 
 % reset the page style
 \pagestyle{plain}
@@ -180,7 +174,7 @@
 
 % the appendix:
 % there are several sections, that don't really fit into the main chapters
-% 
+%
 \part*{\addcontentsline{toc}{part}{Appendices}Appendices}
 \appendix
 
