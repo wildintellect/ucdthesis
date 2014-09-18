@@ -23,7 +23,12 @@ How to write your thesis
  * Using your favorite Latex Editor
 	* Edit the Chapter files, add more if you need (also add reference in the thesis.tex)
 	* Edit the Abstract and Title matter documents
- * Build your latex document using pdflatex (not covered here yet - file to build is thesis.tex)
+ * Build your latex document using pdflatex
+	* Run latex thesis.tex (rerun if the table of contents isn't updating)
+	* Run bibtex thesis.tex (rerun when you change refs)
+		* Run pdflatex thesis.tex
+		* Re-Run bibtex
+	* Run pdflatex (Re-run when you want to see edit changes
  * To get a bibliography you need to run bibtex on your main document.
  	* If you have bibliographies per chapter you also need to run bibtex per chapter
 	* After running bibtex on everything rerun pdflatex 
