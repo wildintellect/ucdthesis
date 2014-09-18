@@ -522,7 +522,23 @@ by\par
 \addcontentsline{toc}{chapter}{Abstract}
 \begin{center}
 {\fmfont
-{\bfseries \abstractname}}\par
+%\begin{alwayssingle}
+    \begin{flushright}
+    {
+      \ssp
+      \@author\\
+      \@degreemonth\ \@degreeyear\\
+      \@field\\
+    }
+    \end{flushright}
+    \begin{center}
+     {\ssp 
+     \@title\par
+     }
+      \vspace{1cm} 
+      {\bfseries \abstractname}
+    \end{center}
+}\par
 \end{center}}
 
 \def\endinlineabstract{}
