@@ -8,8 +8,11 @@ The following set of files are the components needed to write your thesis or dis
 Originally based on the File for a general UC Dissertation / Thesis
 Modfied specifically to the UCD thesis class by Shwaine <shwaine@shwaine.com>
 
-More recent changes by Dylan Beaudette, 2006
-Clarification and posting to github by Alex Mandel <tech@wildintellect.com>, 2010
+2006 - More recent changes by Dylan Beaudette
+2010 Clarification and posting to github by Alex Mandel <tech@wildintellect.com>
+2011 E-filing tweak by Jason Moore
+2014 Style updates to fit recent requirements
+(See the Changelog for more details)
 
 Contact us with questions and updates, we've posted the source on github so it's easier to accept changes and allow people to post their own variations.
 
