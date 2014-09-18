@@ -4,13 +4,15 @@
 \isdissertation{0}
 
 % electronic submission? Paper only = 0, Electronic = 1
-\iselectronic{0}
+\iselectronic{1}
 
 \title{Some Title Here}
 \author{Author}
 
+% Choices are September, December, March, June
 \degreemonth{June}
-\degreeyear{2008}
+\degreeyear{2014}
+%More examples DOCTOR OF PHILOSOPHY
 \degree{Master of Science}
 
 \chair{xxx}
@@ -18,8 +20,9 @@
 xxx}
 \numberofmembers{3}
 
-\prevdegrees{B.S (University of California at Davis)}
+\prevdegrees{B.S (University of California at Davis) Year}
 
+%Your Graduate Group
 \field{xxx}
 \campus{Davis}
 
@@ -27,12 +30,12 @@ xxx}
 % add the abstract here
 \input{abstract}
 
-
+%Not required for electronic submission, you will need to print your other abstract page 2x and hand them in.
 % Here is the first, external, abstract.
-\begin{abstract}
-	\myabstract
-	\abstractsignature
-\end{abstract}
+%\begin{abstract}
+%	\myabstract
+%	\abstractsignature
+%\end{abstract}
 
 \begin{frontmatter}
 \maketitle
@@ -42,19 +45,17 @@ xxx}
 % see the UCD's Office of Graduate Studies web site.
 % \copyrightpage
 
-% dedication 
-\begin{dedication}
-\null\vfil
-{\large
-\begin{center}
-xxxx
-\end{center}}
-\vfil\null
-\end{dedication}
+% dedication (optional), remove comment markers to use 
+%\begin{dedication}
+%\null\vfil
+%{\large
+%\begin{center}
+%xxxx
+%\end{center}}
+%\vfil\null
+%\end{dedication}
 
-\begin{acknowledgments}
-xxxxxxx
-\end{acknowledgments}
+
 
 \tableofcontents
 \listoffigures
@@ -65,14 +66,22 @@ xxxxxxx
 % Inline abstract is now part of front matter according to coordinator
     \newpage
     \begin{inlineabstract}
-		\addcontentsline{toc}{chapter}{\abstractname}
-		\begin{small}
+		%Only enable small if you're trying to make it fit.		
+		%\begin{small}
 		\myabstract
-		\end{small}
+		%\end{small}
 		
-		% DEB 2010/07/09
-		% don't really need the signature for the in-line abstract
-		% \abstractsignature
     \end{inlineabstract}
+
+%Acknowledgments (optional)
+\begin{acknowledgments}
+xxxxxxx
+\end{acknowledgments}
+
+%Preface (optional)
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+\input{preface}
+
 
 \end{frontmatter}

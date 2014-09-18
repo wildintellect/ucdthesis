@@ -474,8 +474,10 @@ by\par
 
 
 \def\abstract{
-  \setcounter{page}{1}
-  \pagenumbering{arabic}
+  %Abstract should be in the Table of Contents and in the Roman numbered section, to change uncomment the next 2 lines	
+  %\setcounter{page}{1}
+  %\pagenumbering{arabic}
+  \addcontentsline{toc}{chapter}{Abstract}
   \thispagestyle{empty}
   \pagestyle{umiabstract}
   \fmfont
@@ -516,6 +518,8 @@ by\par
 % The INLINEABSTRACT environment simply places an abstract in the paper
 
 \def\inlineabstract{
+\phantomsection
+\addcontentsline{toc}{chapter}{Abstract}
 \begin{center}
 {\fmfont
 {\bfseries \abstractname}}\par
@@ -540,6 +544,8 @@ by\par
 
 \newenvironment{acknowledgments}
 {\begin{alwayssingle}
+\phantomsection
+\addcontentsline{toc}{chapter}{Acknowledgments}
 \begin{center}
 {\large \bfseries \acknowledgename}
 \end{center}
@@ -1312,10 +1318,13 @@ by\par
 %   this does not put the page number in the correct location per the UC Davis dissertation 
 %   style guide.  Suggest reverting to the original
 % 
-\def\@oddhead{\hspace{6.25in}\rmfamily\thepage}  % heading (right) - Original, lots of warnings
+%\def\@oddhead{\hspace{6.25in}\rmfamily\thepage}  % heading (right) - Original, lots of warnings
 %\def\@oddhead{\hfil\rmfamily\thepage}             % heading (right) - Incorrect but no warnings
 %
-\def\@evenhead{\rmfamily\thepage\hfil\hbox{}}}    % heading (left)
+%\def\@evenhead{\rmfamily\thepage\hfil\hbox{}}
+\def\@oddfoot{\hfil\rmfamily\thepage\hfil}
+\def\@evenfoot{\hfil\rmfamily\thepage\hfil}
+}    % heading (left)
 
 \def\ps@umiabstract{\let\@mkboth\markboth
 \def\@oddfoot{}\def\@evenfoot{}
