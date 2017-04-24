@@ -78,26 +78,25 @@
 %minted was installed to latex by hand
 %\usepackage{minted}
 
-% TODO: use the new subfig package instead
+% TODO: use the new subfig package instead, subfigure and subcaption conflict now
 % http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
 %
 %use this to put figures side by side
-\usepackage{subfigure}
+%\usepackage{subfigure}
 
  % PDF links --- > breaks with some bibliography entries
 % \usepackage{hyperref}
 
 % nice looking, parenthetical references
-\usepackage[sorting=nyt,natbib=true,citestyle=authoryear,bibstyle=authoryear,maxnames=3,refsection
-=chapter]{biblatex}
-%\usepackage{chapterbib} % incompatible with biblatex
-\bibliography{proposal}
+\usepackage[sorting=nyt,natbib=true,citestyle=authoryear,bibstyle=authoryear,maxnames=3,refsection=chapter,backend=bibtex]{biblatex}
+
+\bibliography{example}
 \defbibheading{bibliography}{%
 	\section{References}
 	}
 	
 % bibliography can be single-spaced for UC thesis format
-\appto{\bibsetup}{\ssp}
+\appto{\bibsetup}{\qssp}
 	
 
 %make the index
@@ -195,13 +194,13 @@
 % \linenumbers
 
 
-
+% There are at least 2 different ways to include chapters
 % chapter 1
-\chapter{Real Title Here}
+%\chapter{Real Title Here}
 \input{chapter1} %This looks for chapter1.tex
 
 % chapter 2
-\chapter{Real Title Here}
+%\chapter{Real Title Here}
 \input{chapter2} %This looks for chapter2.tex
 
 
